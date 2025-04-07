@@ -58,6 +58,93 @@ public class twoSum {   //方法
     }*/
 
 
+    //部分新知识 - 哈希表
+/*    import java.util.HashMap;
+import java.util.Arrays;
+
+    public class Solution {
+        public static int[] twoSum(int[] nums, int target) {
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                int complement = target - nums[i];
+                if (map.containsKey(complement)) {
+                    return new int[]{map.get(complement), i}; // 返回已存储的索引和当前索引[[3, 11, 18]]
+                }
+                map.put(nums[i], i); // 将当前元素存入哈希表
+            }
+            throw new IllegalArgumentException("No two sum solution"); // 无解时抛出异常
+        }
+
+        public static void main(String[] args) {
+            int[] nums = {2, 7, 11, 15};
+            int target = 9;
+            int[] result = twoSum(nums, target);
+            System.out.println("结果下标：" + Arrays.toString(result)); // 输出：[0, 1]
+        }
+    }*/
+
+/*    import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Scanner;
+
+    public class Solution {
+        public static int[] twoSum(int[] nums, int target) {
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                int complement = target - nums[i];
+                if (map.containsKey(complement)) {
+                    return new int[]{map.get(complement), i};
+                }
+                map.put(nums[i], i);
+            }
+            throw new IllegalArgumentException("无解");
+        }
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            // 手动输入数组
+            System.out.print("请输入数组元素（用空格分隔，例如：2 7 11 15）: ");
+            String[] input = scanner.nextLine().split("\\s+");
+            int[] sums = new int[input.length];
+            for (int i = 0; i < input.length; i++) {
+                sums[i] = Integer.parseInt(input[i]);
+            }
+
+            // 手动输入目标值
+            System.out.print("请输入目标值（例如：9）: ");
+            int target = scanner.nextInt();
+
+            // 计算并输出结果
+            int[] result = twoSum(sums, target);
+            System.out.println("结果下标：" + Arrays.toString(result));
+        }
+    }*/
+
+
+    //部分新知识 - 暴力解法
+/*
+    public class Solution {
+        public static int[] twoSum(int[] nums, int target) {
+            for (int i = 0; i < nums.length; i++) {
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[i] + nums[j] == target) {
+                        return new int[]{i, j}; // 返回两个索引[[1, 5, 13]]
+                    }
+                }
+            }
+            throw new IllegalArgumentException("No two sum solution");
+        }
+
+        public static void main(String[] args) {
+            int[] nums = {2, 7, 11, 15};
+            int target = 9;
+            int[] result = twoSum(nums, target);
+            System.out.println("结果下标：" + Arrays.toString(result)); // 输出：[0, 1]
+        }
+    }
+*/
+
 
     //补充：哈希表 - 优化版
     /*public class MultiTwoSum {
